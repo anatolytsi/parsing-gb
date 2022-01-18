@@ -1,4 +1,3 @@
 /.idea
 __pycache__/
-/production/todo_notes/db.sqlite3
-/production/todo_notes/.env
+
