@@ -9,3 +9,9 @@
 
 This repository holds the homework done while studying on the Methods of Internet Data Collection and Processing course at [GeekBrains University](https://gb.ru/).
 
+
+### Table of Contents
+
+<ol type="1">
+    <li><a href="lesson1">Fundamentals of client-server interactions. API Parsing</a></li>
+</ol>
