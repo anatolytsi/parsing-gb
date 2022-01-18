@@ -20,7 +20,7 @@ PARAMS = {
 
 
 def get_video_data(video_url: str) -> dict:
-    """Gets data from a
+    """Gets data about a
     YouTube video via its URL.
 
     :param video_url: YouTube video URL.
