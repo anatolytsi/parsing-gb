@@ -1,0 +1,82 @@
+[
+  {
+    "name": "anatolytsi/adpp-gb",
+    "url": "https://github.com/anatolytsi/adpp-gb"
+  },
+  {
+    "name": "anatolytsi/advanced_js_gb",
+    "url": "https://github.com/anatolytsi/advanced_js_gb"
+  },
+  {
+    "name": "anatolytsi/anatolytsi",
+    "url": "https://github.com/anatolytsi/anatolytsi"
+  },
+  {
+    "name": "anatolytsi/anatolytsi.github.io",
+    "url": "https://github.com/anatolytsi/anatolytsi.github.io"
+  },
+  {
+    "name": "anatolytsi/basic_course_django_gb",
+    "url": "https://github.com/anatolytsi/basic_course_django_gb"
+  },
+  {
+    "name": "anatolytsi/basic_course_js_gb",
+    "url": "https://github.com/anatolytsi/basic_course_js_gb"
+  },
+  {
+    "name": "anatolytsi/CarRGB_v1",
+    "url": "https://github.com/anatolytsi/CarRGB_v1"
+  },
+  {
+    "name": "anatolytsi/cs-apps-gb",
+    "url": "https://github.com/anatolytsi/cs-apps-gb"
+  },
+  {
+    "name": "anatolytsi/databases_geekbrains",
+    "url": "https://github.com/anatolytsi/databases_geekbrains"
+  },
+  {
+    "name": "anatolytsi/db-pyqt-gb",
+    "url": "https://github.com/anatolytsi/db-pyqt-gb"
+  },
+  {
+    "name": "anatolytsi/django-dynamic-formset",
+    "url": "https://github.com/anatolytsi/django-dynamic-formset"
+  },
+  {
+    "name": "anatolytsi/django_opt_tools_gb",
+    "url": "https://github.com/anatolytsi/django_opt_tools_gb"
+  },
+  {
+    "name": "anatolytsi/drf-gb",
+    "url": "https://github.com/anatolytsi/drf-gb"
+  },
+  {
+    "name": "anatolytsi/parsing-gb",
+    "url": "https://github.com/anatolytsi/parsing-gb"
+  },
+  {
+    "name": "anatolytsi/python_algos_gb",
+    "url": "https://github.com/anatolytsi/python_algos_gb"
+  },
+  {
+    "name": "anatolytsi/python_basics_homeworks",
+    "url": "https://github.com/anatolytsi/python_basics_homeworks"
+  },
+  {
+    "name": "anatolytsi/qpc",
+    "url": "https://github.com/anatolytsi/qpc"
+  },
+  {
+    "name": "anatolytsi/rpi-python-hvac",
+    "url": "https://github.com/anatolytsi/rpi-python-hvac"
+  },
+  {
+    "name": "anatolytsi/rpi-react-hvac",
+    "url": "https://github.com/anatolytsi/rpi-react-hvac"
+  },
+  {
+    "name": "anatolytsi/rpi-wot-hvac",
+    "url": "https://github.com/anatolytsi/rpi-wot-hvac"
+  }
+]
