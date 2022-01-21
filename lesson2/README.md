@@ -7,7 +7,7 @@ A script entry point is file `parser.py`
 
 ##### Functionality:
 
-Script parses vacancies for position "Разработчик" from [hh.ru](https://hh.ru) and [superjob.ru](https://superjob.ru) websites by default. Two pages are parsed for each website using [BeautifulSoup](https://pypi.org/project/beautifulsoup4/), concatenated into a single dataframe and saved as `collected_data.csv`.
+Script parses vacancies for position "Разработчик" from [hh.ru](https://hh.ru) and [superjob.ru](https://superjob.ru) websites by default. Two pages are parsed for each website using [BeautifulSoup](https://pypi.org/project/beautifulsoup4/), concatenated into a single dataframe and saved as [collected_data.csv](collected_data.csv).
 
 ###### Collected data example:
 
