@@ -4,7 +4,7 @@ import requests
 from bs4 import BeautifulSoup
 import pandas as pd
 
-POSITIONS_K = 'POSITION'
+POSITIONS_K = 'Position'
 URL_K = 'URL'
 SALARY_K = 'Salary'
 WEBSITE_K = 'Website'
