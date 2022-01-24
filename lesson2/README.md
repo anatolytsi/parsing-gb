@@ -11,13 +11,15 @@ Script parses vacancies for position "Разработчик" from [hh.ru](https
 
 ###### Collected data example:
 
-|Position                       |URL                                                                                                                                                          |Salary    |Website|
-|-------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|-------|
-|Разработчик .NET (#C)          |https://hh.ru/vacancy/51256477?from=vacancy_search_list&query=%D0%A0%D0%B0%D0%B7%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D1%87%D0%B8%D0%BA&hhtmFrom=vacancy_search_list|          |hh.ru  |
-|Dart/Flutter Developer         |https://hh.ru/vacancy/48345898?from=vacancy_search_list&query=%D0%A0%D0%B0%D0%B7%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D1%87%D0%B8%D0%BA&hhtmFrom=vacancy_search_list|от 2 000 EUR|hh.ru  |
-|PHP разработчик (на Кипр)      |https://hh.ru/vacancy/51335330?from=vacancy_search_list&query=%D0%A0%D0%B0%D0%B7%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D1%87%D0%B8%D0%BA&hhtmFrom=vacancy_search_list|          |hh.ru  |
-|Frontend разработчик           |https://hh.ru/vacancy/50691684?from=vacancy_search_list&query=%D0%A0%D0%B0%D0%B7%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D1%87%D0%B8%D0%BA&hhtmFrom=vacancy_search_list|120 000 – 200 000 руб.|hh.ru  |
-|...                            |...                                                                                                                                                          |...       |...    |
+|Position                    |URL                                                  |Min. Salary|Max. Salary|Currency|Website    |
+|----------------------------|-----------------------------------------------------|-----------|-----------|--------|-----------|
+|Ведущий разработчик С++/Qt  |superjob.ru/vakansii/veduschij-razrabotchik-s-41309095.html|           |120000     |руб     |superjob.ru|
+|Программист 1С              |superjob.ru/vakansii/programmist-1s-40974649.html    |120000     |130000     |руб     |superjob.ru|
+|Frontend developer (VUE)    |superjob.ru/vakansii/frontend-developer-40902995.html|           |           |        |superjob.ru|
+|Frontend Developer (ReactJS)|superjob.ru/vakansii/frontend-developer-40903075.html|           |           |        |superjob.ru|
+|Программист SQL (OLAP-кубы) |superjob.ru/vakansii/programmist-sql-41200654.html   |150000     |           |руб     |superjob.ru|
+|Программист PLC             |superjob.ru/vakansii/programmist-plc-41306259.html   |80000      |100000     |руб     |superjob.ru|
+|...                         |...                                                  |...        |...        |...     |...        |
 
 ##### [hh.ru](https://hh.ru) (example) function overview:
 
@@ -31,6 +33,7 @@ def get_hh_vacancies(position: str, pages: int = 2) -> pd.DataFrame:
     :param pages: amount of pages to cover.
     :return: pandas DataFrame.
     """
+    pages_t = 'a.bloko-button[data-qa=pager-page] span'
     container_t = 'div.vacancy-serp-item'
     position_t = 'a[data-qa=vacancy-serp__vacancy-title]'
     url_t = 'a[data-qa=vacancy-serp__vacancy-title]'
@@ -38,6 +41,6 @@ def get_hh_vacancies(position: str, pages: int = 2) -> pd.DataFrame:
     requester = lambda page: requests.get(f'{PROT}{HH_URL}/search/vacancy',
                                           params={'text': position, 'page': page},
                                           headers=HEADERS)
-    df = get_vacancies_from_pages(HH_URL, pages, requester, container_t, position_t, url_t, salary_t)
+    df = get_vacancies_from_pages(HH_URL, pages, requester, pages_t, container_t, position_t, url_t, salary_t)
     return df
 ```

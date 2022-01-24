@@ -1,6 +1,8 @@
 """
 Collect vacancies information from hh.ru and superjob.ru.
 """
+import re
+
 import requests
 import pandas as pd
 
@@ -14,7 +16,7 @@ HEADERS = {
 }
 
 
-def get_hh_vacancies(position: str, pages: int = 2) -> pd.DataFrame:
+def get_hh_vacancies(position: str, pages: int) -> pd.DataFrame:
     """
     Gets certain positions from hh.ru from a number
     of pages and returns them as a DataFrame.
@@ -23,6 +25,7 @@ def get_hh_vacancies(position: str, pages: int = 2) -> pd.DataFrame:
     :param pages: amount of pages to cover.
     :return: pandas DataFrame.
     """
+    pages_t = 'a.bloko-button[data-qa=pager-page] span'
     container_t = 'div.vacancy-serp-item'
     position_t = 'a[data-qa=vacancy-serp__vacancy-title]'
     url_t = 'a[data-qa=vacancy-serp__vacancy-title]'
@@ -30,11 +33,11 @@ def get_hh_vacancies(position: str, pages: int = 2) -> pd.DataFrame:
     requester = lambda page: requests.get(f'{PROT}{HH_URL}/search/vacancy',
                                           params={'text': position, 'page': page},
                                           headers=HEADERS)
-    df = get_vacancies_from_pages(HH_URL, pages, requester, container_t, position_t, url_t, salary_t)
+    df = get_vacancies_from_pages(HH_URL, pages, requester, pages_t, container_t, position_t, url_t, salary_t)
     return df
 
 
-def get_superjob_vacancies(position: str, pages: int = 2) -> pd.DataFrame:
+def get_superjob_vacancies(position: str, pages: int) -> pd.DataFrame:
     """
     Gets certain positions from superjob.ru from a number
     of pages and returns them as a DataFrame.
@@ -43,21 +46,22 @@ def get_superjob_vacancies(position: str, pages: int = 2) -> pd.DataFrame:
     :param pages: amount of pages to cover.
     :return: pandas DataFrame.
     """
+    pages_t = ('a', {'class': re.compile(r'f-test-button-\d+')})
     container_t = 'div.f-test-vacancy-item'
-    position_t = 'a'
-    url_t = 'a'
-    salary_t = 'span.f-test-text-company-item-salary span'
+    position_t = (('a', {'class': re.compile(r'f-test-link-\w+')}), 0)
+    url_t = (('a', {'class': re.compile(r'f-test-link-\w+')}), 0)
+    salary_t = ('span.f-test-text-company-item-salary span', 0)
     requester = lambda page: requests.get(f'{PROT}{SJ_URL}/vacancy/search/',
                                           params={'keywords': position, 'page': page},
                                           headers=HEADERS)
-    df = get_vacancies_from_pages(SJ_URL, pages, requester, container_t, position_t, url_t, salary_t)
+    df = get_vacancies_from_pages(SJ_URL, pages, requester, pages_t, container_t, position_t, url_t, salary_t)
     return df
 
 
 def main():
     position = 'Разработчик'
-    hh_df = get_hh_vacancies(position)
-    sj_df = get_superjob_vacancies(position)
+    hh_df = get_hh_vacancies(position, 2)
+    sj_df = get_superjob_vacancies(position, 2)
     websites_df = pd.concat([hh_df, sj_df])
     websites_df.to_csv('collected_data.csv', index=False)
 
