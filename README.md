@@ -13,7 +13,7 @@ This repository holds the homework done while studying on the Methods of Interne
 ### Table of Contents
 
 <ol type="1">
-    <li><a href="lesson1">Fundamentals of client-server interactions. API Parsing</a></li>
+    <li><a href="lesson1">Lesson 1. Fundamentals of client-server interactions. API Parsing</a></li>
     <li><a href="lesson2">Lesson 2. HTML Parsing. BeautifulSoup</a></li>
-    <li><a href="lesson2">Lesson 3. MongoDB and SQLite Database Control Systems in Python</a></li>
+    <li><a href="lesson3">Lesson 3. MongoDB and SQLite Database Control Systems in Python</a></li>
 </ol>
