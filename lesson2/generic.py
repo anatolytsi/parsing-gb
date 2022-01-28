@@ -4,12 +4,11 @@ from typing import Callable, Tuple, Dict, Union, List
 import requests
 from bs4 import BeautifulSoup, Tag
 from bs4.element import ResultSet
-import pandas as pd
 
 POSITIONS_K = 'Position'
 URL_K = 'URL'
-MIN_SALARY_K = 'Min. Salary'
-MAX_SALARY_K = 'Max. Salary'
+MIN_SALARY_K = 'Minimum Salary'
+MAX_SALARY_K = 'Maximum Salary'
 CURRENCY_K = 'Currency'
 WEBSITE_K = 'Website'
 SALARY_RE = re.compile(r'(\d+\s?\d+)')
@@ -108,7 +107,7 @@ def get_vacancies_from_pages(website_url: str,
                              container_t: FindType,
                              position_t: FindType,
                              url_t: FindType,
-                             salary_t: FindType) -> pd.DataFrame:
+                             salary_t: FindType) -> dict:
     """
     Gets certain positions from a given
     website within a number of pages and
@@ -128,7 +127,7 @@ def get_vacancies_from_pages(website_url: str,
         string for URL container.
     :param salary_t: BeautifulSoup select
         string for salary container.
-    :return: pandas DataFrame
+    :return: vacancies data dict
     """
     vacancies = {POSITIONS_K: [], URL_K: [], MIN_SALARY_K: [], MAX_SALARY_K: [], CURRENCY_K: []}
     response = requester(1)
@@ -147,6 +146,5 @@ def get_vacancies_from_pages(website_url: str,
         vacancies[MIN_SALARY_K].extend(min_salaries)
         vacancies[MAX_SALARY_K].extend(max_salaries)
         vacancies[CURRENCY_K].extend(currencies)
-    df = pd.DataFrame(vacancies)
-    df[WEBSITE_K] = website_url
-    return df
+    vacancies[WEBSITE_K] = [website_url for _ in vacancies[POSITIONS_K]]
+    return vacancies
