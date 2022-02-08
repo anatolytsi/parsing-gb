@@ -18,4 +18,5 @@ This repository holds the homework done while studying on the Methods of Interne
     <li><a href="lesson3">Lesson 3. MongoDB and SQLite Database Control Systems in Python</a></li>
     <li><a href="lesson4">Lesson 4. HTML Parsing. XPath</a></li>
     <li><a href="lesson5">Lesson 5. Selenium</a></li>
+    <li><a href="lesson6">Lesson 6. Scrapy</a></li>
 </ol>
