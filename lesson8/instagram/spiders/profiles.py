@@ -34,8 +34,10 @@ class ProfilesSpider(scrapy.Spider):
         'count': 12
     }
 
-    def __init__(self, profiles: list, **kwargs):
+    def __init__(self, profiles: list or str, **kwargs):
         super(ProfilesSpider, self).__init__(*kwargs)
+        if isinstance(profiles, str):
+            profiles = profiles.split(',')
         self.profiles = profiles
 
     def parse(self, response: HtmlResponse, **kwargs):
