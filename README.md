@@ -20,4 +20,5 @@ This repository holds the homework done while studying on the Methods of Interne
     <li><a href="lesson5">Lesson 5. Selenium</a></li>
     <li><a href="lesson6">Lesson 6. Scrapy</a></li>
     <li><a href="lesson7">Lesson 7. Scrapy. Files Parsing</a></li>
+    <li><a href="lesson8">Lesson 8. Working with data</a></li>
 </ol>
